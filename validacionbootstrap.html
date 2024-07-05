@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <script src="jquery-3.7.1.js"></script>
+</head>
+
+<body>
+   
+   <div class="row">
+
+     <div class="col-sm-6">
+
+    <div class="card">
+        <div class="card-body">
+
+            <form> 
+		
+                <label>Nombre</label><br>
+                <input type="text"  class="form-control" Id="NombreID" required>
+                <label>Apellido</label><br>
+                <input type="text" class="form-control" Id="ApellidoID" required>
+                <label>Carrera</label><br>
+                
+                <select class="form-select" id="validationCustom04" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+
+                
+            
+                <label>Telefono</label><br>
+                <input type="text" class="form-control" Id="TelefonoID" maxlength="11" required>
+            
+                <label>Email</label><br>
+                <input type="email" class="form-control" Id="EmailID" required>
+                 
+                <button type="submit" id="btnguardar" class="btn btn-primary" >Guardar</button>
+            
+            </form>
+
+
+        </div>
+
+
+    </div>
+      
+     </div>
+
+   </div>
+   
+   
+  
+	 
+</body>
+</html>
+<script>
+
+$("#btnguardar").click(function() {
+    $("#btnguardar").css({
+        'border': '3px solid #47FB2D',
+        'color': '#47FB2D',
+        'background-color': '#525252'
+    })
+});
+
+
+</script>

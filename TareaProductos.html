@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO DE PRODUCTOS</title>
+
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet">
+    
+</head>
+
+<body>
+   
+   <div class="ng-container" >
+
+     <div class="col-sm-8">
+
+    <div class="card">
+        <div class="card-body">
+            <h1 id="titulo">Registro de Productos</h1>
+
+            <form id="container">  
+                
+                <div class="row mb-3 offset-sm-3">
+                    <label for="nombreproducto" class="col-sm-2 col-form-label">Producto</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="nombreproducto"placeholder="Ingrese Producto">
+                    </div>
+                </div>
+                    <div class="row mb-3 offset-sm-3">
+                        <label for="cantidad" class="col-sm-2 col-form-label">Cantidad</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="cantidad" placeholder="Ingrese Cantidad">
+                    </div>
+                </div>
+                <div class="row mb-3 offset-sm-3">
+                    <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="precio" placeholder="Ingrese Precio">
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3 offset-sm-3">
+                    <button type="button" id="guardar" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+             
+                <table class="table" id ="productos">
+                    <thead>
+                      <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Subtotal</th>
+                        <th scope="col">IGV</th>
+                        <th scope="col">TotalPagar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                  </table>
+            
+    </div>
+      
+     </div>
+
+   </div>	 
+</body>
+</html>
+<script>
+    
+$(document).ready(function(){
+    
+$("#guardar").click(function() {
+
+    var xnombreproducto=$("#nombreproducto").val().trim();
+
+    var xcantidad =$("#cantidad ").val();
+
+    var xprecio =$("#precio").val();
+
+    
+    $("#Subtotal").val(xtotal); 
+    var subtotal = eval(xcantidad) * eval(xprecio);
+    $("#IGV").val(xtotal); 
+    var igv = subtotal * 0.18;
+    $("#total").val(xtotal); 
+    var xtotal = eval(subtotal) + eval(igv);
+
+
+    //alert("Factura: "+xtotal);
+
+    if(xnombreproducto !== '' && !isNaN(xcantidad) && !isNaN(xprecio)) {
+        
+        $('#productos tbody').append('<tr><td>' + xnombreproducto + '</td><td>' + xcantidad + '</td><td>' + xprecio +'</td><td>'+ subtotal.toFixed(2) + '</td><td>' + igv.toFixed(2) + '</td><td>' + xtotal.toFixed(2)+"</td></tr>");
+        
+        $('#nombreproducto').val('');
+        $('#cantidad').val('');
+        $('#precio').val('');
+        $('#total').val('');
+    }  else {
+        alert('Por favor, ingrese un nombre válido y asegúrese de que la cantidad y el precio sean números.');
+      }   
+
+        xprecio = xprecio.toFixed(0);
+        subtotal = subtotal.toFixed(2);
+        igv = igv.toFixed(2);
+        xtotal = xtotal.toFixed(2);
+       
+//alert("Soy Axel-Recarga la pagina")
+/*$("#btnguardar").css({
+    'border': '3px solid #47FB2D',
+    'color': '#47FB2D',
+    'background-color': '#525252'
+})
+
+//var expr=/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9_\-]+\.[a-zA-Z0-9_\-\.]+$/;
+
+var guardar = document.getElementById('guardar');
+var lista= document.getElementById('lista');
+var data=[];
+var cant =0;
+boton.addEventListener("click",guardar);
+
+var nombreproducto=document.getElementById('nombreproducto').value;
+var precio=parseFloat(document.getElementById('cantidad ').value);
+var cantidad=parseFloat(document.getElementById('precio').value);*/
+});});
+</script>
+
+

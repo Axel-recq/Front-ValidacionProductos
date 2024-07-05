@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body>
+   
+   <div class="row">
+
+     <div class="col-sm-6">
+
+    <div class="card">
+        <div class="card-body">
+
+            <form> 
+                <div class="row mb-3 offset-sm-3">
+                    <label for="nombreproducto" class="col-sm-2 col-form-label">Producto</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="nombreproducto"placeholder="Ingrese Producto">
+                    </div>
+                </div>
+                    <div class="row mb-3 offset-sm-3">
+                        <label for="cantidad" class="col-sm-2 col-form-label">Cantidad</label>
+                        <div class="col-sm-4">
+                          <input type="text" class="form-control" id="cantidad" placeholder="Ingrese Cantidad">
+                    </div>
+                </div>
+                <div class="row mb-3 offset-sm-3">
+                    <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control" id="precio" placeholder="Ingrese Precio">
+                </div>
+                </div>
+                <div class="row mb-3 offset-sm-3">
+                    <label for="total" class="col-sm-2 col-form-label">Total</label>
+                    <div class="col-sm-4">
+                    <input type="text" class="form-control" id="total" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 offset-sm-3">
+                    <button type="button" id="btnguardar" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            
+            
+            </form>
+
+
+        </div>
+
+
+    </div>
+      
+     </div>
+
+   </div>	 
+</body>
+</html>
+<script>
+$(document).ready(function(){
+$("#btnguardar").click(function() {
+
+    //alert("Soy Axel-Recarga la pagina")
+    /*$("#btnguardar").css({
+        'border': '3px solid #47FB2D',
+        'color': '#47FB2D',
+        'background-color': '#525252'
+    })
+    */
+   var xnombreproducto=$("#nombreproducto").val().trim();
+
+   var xcantidad =$("#cantidad ").val();
+
+   var xprecio =$("#precio").val();
+
+   var xtotal= eval(xcantidad) * eval(xprecio);
+
+   $("#total").val(xtotal); 
+
+   alert("Factura: "+xtotal);
+});});
+</script>
